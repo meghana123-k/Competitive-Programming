@@ -7,16 +7,16 @@ public class ContainsDuplicates {
         System.out.println("Enter no. of elements: ");
         int n = sc.nextInt();
         int a[] = new int[n];
-        System.out.println("Enter "+n+" Elements");
+        System.out.println("Enter " + n + " Elements");
         HashMap<Integer, Integer> freq = new HashMap<>();
-        for(int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             a[i] = sc.nextInt();
-            freq.put(a[i], freq.getOrDefault(a[i], 0)+1);
+            freq.put(a[i], freq.getOrDefault(a[i], 0) + 1);
         }
-        for(int key: freq.keySet()) {
+        for (int key : freq.keySet()) {
             int val = freq.get(key);
-            if(val > 1) {
-                System.out.print(key+" ");
+            if (val > 1) {
+                System.out.print(key + " ");
             }
         }
     }
