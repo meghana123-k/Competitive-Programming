@@ -28,6 +28,7 @@ public class LongestMountain {
         for (int i = 0; i < n; i++) {
             a[i] = sc.nextInt();
         }
-        System.out.println("The length of the longest mountain is "+longestMountain(a, n));    
+        System.out.println("The length of the longest mountain is "+longestMountain(a, n)); 
+        sc.close();   
     }
 }
