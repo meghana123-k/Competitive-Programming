@@ -17,10 +17,10 @@ class Insertion {
             return new Node(value);
         }
 
-        if(value < root.data) {
-            root = insertRec(root.left, value);
+        if(value <= root.data) {
+            root.left = insertRec(root.left, value);
         } else if(value > root.data) {
-            root = insertRec(root.right, value);
+            root.right = insertRec(root.right, value);
         }
         return root;
     }
@@ -33,11 +33,10 @@ class Insertion {
         return root;
     }
     public static void inOrder(Node root) {
-        if(root != null) {
-            inOrder(root.left);
-            System.out.print(root.data);
-            inOrder(root.right);
-        }
+        if(root == null)  return ;
+        inOrder(root.left);
+        System.out.print(root.data+" ");
+        inOrder(root.right);
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
