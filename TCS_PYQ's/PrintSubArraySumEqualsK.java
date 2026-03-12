@@ -20,6 +20,7 @@ class PrintSubArraySumEqualsK {
                 }
                 System.out.println();
             }
+            map.put(currSum, i);
         }
     }
 
