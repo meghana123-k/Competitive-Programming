@@ -1,5 +1,20 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
+
+class Transaction {
+    String sender;
+    String receiver;
+    double amount;
+    int timestamp;
+
+    Transaction(String sender, String receiver, double amount, int timestamp) {
+        this.sender = sender;
+        this.receiver = receiver;
+        this.amount = amount;
+        this.timestamp = timestamp;
+    }
+}
 
 public class FraudDetection {
     public static void main(String[] args) {
@@ -17,27 +32,23 @@ public class FraudDetection {
          */
         Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
-        HashMap<String, Integer> map = new HashMap<>();
-        boolean found = false;
+        // HashMap<String, ArrayList<Integer>> map = new HashMap<>();
+        Transaction[] transactions = new Transaction[t];
+
         for (int i = 0; i < t; i++) {
-            String sender = sc.next();
-            String receiver = sc.next();
-            int amount = sc.nextInt();
-            int timestamp = sc.nextInt();
-            String key = sender + " " + receiver + " " + amount;
-            if (map.containsKey(key)) {
-                int prevTimestamp = map.get(key);
-                if (timestamp - prevTimestamp < 60) {
-                    System.out.println("Fraud transaction: " + key
-                            + " at timestamp " + timestamp
-                    );
-                    found = true;
-                }
-            }
-            map.put(key, timestamp);
+            String parts[] = sc.nextLine().trim().split(" ");
+            transactions[i] = new Transaction(parts[0], parts[1], Double.parseDouble(parts[1]),
+                    Integer.parseInt(parts[2]));
         }
-        if(!found) {
-            System.out.println("No fraud transactions found");
+        HashMap<String, ArrayList<long[]>> map = new HashMap<>();
+        for(int i = 0; i < t; i++) {
+            String key = transactions[i].sender + transactions[i].receiver + transactions[i].amount;
+            map.putIfAbsent(key, new ArrayList<>());
+            map.get(key).add(new long[]{transactions[i].timestamp, i});
+        }
+        long fraud[] = new long[t];
+        for(int i = 0; i < t; i++) {
+            
         }
         sc.close();
     }
