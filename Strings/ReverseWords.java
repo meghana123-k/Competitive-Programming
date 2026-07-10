@@ -1,5 +1,7 @@
 
 public class ReverseWords {
+    private String name = "Meghana";
+
     public static void main(String[] args) {
         String str = "         Ram is a good boy       ";
         String s[] = str.trim().split(" ");
@@ -9,6 +11,9 @@ public class ReverseWords {
             String r = rev.reverse().toString();
             sb.append(r).append(" ");
         }
-        System.out.println(sb.toString());
+        System.out.println(sb);
+        ;
+        ;
+        ;
     }
 }
