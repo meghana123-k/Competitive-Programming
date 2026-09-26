@@ -19,5 +19,6 @@ public class ContainsDuplicates {
                 System.out.print(key + " ");
             }
         }
+        sc.close();
     }
 }
