@@ -35,5 +35,6 @@ class MeetingRooms {
 		System.out.println("Scheduled Meeting Order ");
 		System.out.println(order);
         System.out.println("\nTotal count: " + cnt);
+		sc.close();
 	}
 }

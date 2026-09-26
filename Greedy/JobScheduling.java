@@ -40,5 +40,6 @@ class JobScheduling {
             }
         }
         System.out.println("\nTotal Profit: " + totalProfit);
+        sc.close();
     }
 }

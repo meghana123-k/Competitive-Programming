@@ -36,6 +36,6 @@ class UgliString {
         }
         int num = Integer.parseInt(String.valueOf(ch), 2);
         System.out.println(num);
-
+        sc.close();
     }
 }
