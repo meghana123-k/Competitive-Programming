@@ -1,3 +1,4 @@
+import java.util.*;;
 public class LongestSubarrayWithSumK {
     public static void sliding(int[] a, int k) {
         int l = 0, r = 0;
@@ -15,8 +16,20 @@ public class LongestSubarrayWithSumK {
         }
         System.out.println(maxLen);
     }
-    public static void hashMap(int[] a, int k) {
+    public static void hashMap(int[] arr, int k) {
         
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int ans = 0;
+        int sum = 0;
+        map.put(0, -1);
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
+            if (map.containsKey(sum - k)) {
+                ans = Math.max(ans, i - map.get(sum - k));
+            }
+            map.putIfAbsent(sum, i);
+        }
+        System.out.println(ans);
     }
     public static void main(String[] args) {
         // int[] a = {10, 5, 2, 7, 1, 9};
